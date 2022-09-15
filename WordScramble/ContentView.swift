@@ -66,18 +66,29 @@ struct ContentView: View {
                 Text(errorMessage)
             }
             .toolbar {
-                Text("New game")
-                    .foregroundColor(.blue)
-                    .onTapGesture {
-                        
-                        showingConfirmation = true
-                    }
-                    .alert("New game", isPresented: $showingConfirmation) {
-                        Button("Yes", action: startGame)
-                        Button("Cancel", role: .cancel) { }
-                    } message: {
-                        Text("Are you sure you want to start a new game?")
-                    }
+                Button("New game") {
+                    showingConfirmation = true
+                }
+                .alert(isPresented: $showingConfirmation) {
+                    Alert(title: Text("New game"),
+                          message: Text("Are you sure you want to start a new game?"),
+                          primaryButton: .default(Text("Yes")) {
+                        startGame()
+                    },
+                          secondaryButton: .cancel())
+                }
+//                Text("New game")
+//                    .foregroundColor(.blue)
+//                    .onTapGesture {
+//                        showingConfirmation = true
+//                    }
+//                    .alert("New game", isPresented: $showingConfirmation) {
+//                        Button("Yes", action: startGame)
+//                        Button("Cancel", role: .cancel) { }
+//                    } message: {
+//                        Text("Are you sure you want to start a new game?")
+//                    }
+                
             }
         }
     }
