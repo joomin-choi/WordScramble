@@ -20,10 +20,14 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                VStack {
+                Section {
                     Text("\(rootWord)")
                         .font(.system(size: 20))
                         .frame(maxWidth: .infinity, alignment: .center)
+                } header: {
+                    Text("Word")
+                } footer: {
+                    Text("Rules: \n- Word has to be original \n- Word has to be possible from given word \n- Word has to be real \n- Word has to be more than 3 letters \n- Word can't be the starting word")
                 }
                 
                 Section {
