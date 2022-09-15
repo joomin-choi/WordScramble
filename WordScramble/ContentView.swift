@@ -16,6 +16,7 @@ struct ContentView: View {
     @State private var errorTitle = ""
     @State private var errorMessage = ""
     @State private var showingError = false
+    @State private var showingConfirmation = false
     
     var body: some View {
         NavigationView {
@@ -65,7 +66,18 @@ struct ContentView: View {
                 Text(errorMessage)
             }
             .toolbar {
-                Button("New word", action: startGame)
+                Text("New game")
+                    .foregroundColor(.blue)
+                    .onTapGesture {
+                        
+                        showingConfirmation = true
+                    }
+                    .alert("New game", isPresented: $showingConfirmation) {
+                        Button("Yes", action: startGame)
+                        Button("Cancel", role: .cancel) { }
+                    } message: {
+                        Text("Are you sure you want to start a new game?")
+                    }
             }
         }
     }
