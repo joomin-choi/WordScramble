@@ -25,14 +25,16 @@ struct ContentView: View {
                         .font(.system(size: 20))
                         .frame(maxWidth: .infinity, alignment: .center)
                 } header: {
-                    Text("Word")
+                    Text("Word to scramble")
                 } footer: {
-                    Text("Rules: \n- Word has to be original \n- Word has to be possible from given word \n- Word has to be real \n- Word has to be more than 3 letters \n- Word can't be the starting word")
+                    Text("Rules: \n- Word has to be original \n- Word has to be possible from given word \n- Word has to be real \n- Word has to be more than 3 letters \n- Word can't be the starting word \n\n Scoring system: \n - 1 point for 4 letter word \n - 1 point for every extra letter after")
                 }
                 
                 Section {
-                    Text("Score: \(score)")
+                    Text("\(score)")
                         .frame(maxWidth: .infinity, alignment: .center)
+                } header: {
+                    Text("Score")
                 }
                 
                 Section {
