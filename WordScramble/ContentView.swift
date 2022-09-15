@@ -40,6 +40,8 @@ struct ContentView: View {
                 Section {
                     TextField("Enter your word", text: $newWord)
                         .autocapitalization(.none)
+                } header: {
+                    Text("Answer")
                 }
                 
                 Section {
@@ -49,6 +51,8 @@ struct ContentView: View {
                             Text(word)
                         }
                     }
+                } header: {
+                    Text("Valid answers ✔️")
                 }
             }
             .navigationTitle("WordScramble")
